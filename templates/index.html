@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Untitled Shooter</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div id="menu-screen" class="screen active">
+        <h1>Безымянный шутер</h1>
+        <div class="menu-buttons">
+            <button id="play-btn" class="menu-btn">Играть</button>
+            <button id="settings-btn" class="menu-btn">Настройки</button>
+        </div>
+    </div>
+
+    <div id="settings-screen" class="screen">
+        <h2>Настройки</h2>
+        <div class="settings-container">
+            <div class="setting">
+                <label for="wave-frequency">Частота волн</label>
+                <select id="wave-frequency" class="setting-select">
+                    <option value="1">1 минута</option>
+                    <option value="3" selected>3 минуты</option>
+                    <option value="5">5 минут</option>
+                </select>
+            </div>
+            <div class="setting">
+                <label for="wave-difficulty">Сложность волн</label>
+                <select id="wave-difficulty" class="setting-select">
+                    <option value="easy">легко</option>
+                    <option value="medium" selected>средне</option>
+                    <option value="hard">сложно</option>
+                    <option value="insane">они идут!</option>
+                </select>
+            </div>
+            <div class="setting">
+                <label for="day-night-toggle">Смена дня и ночи</label>
+                <div class="checkbox-container">
+                    <input type="checkbox" id="day-night-toggle">
+                    <span class="checkbox-custom"></span>
+                </div>
+            </div>
+            <div class="setting">
+                <label for="bonus-type">Дополнительные бонусы</label>
+                <select id="bonus-type" class="setting-select">
+                    <option value="health">Только здоровье</option>
+                    <option value="weapon">Только оружие</option>
+                    <option value="movement">Только передвижение</option>
+                    <option value="weapon_health">Оружие и здоровье</option>
+                    <option value="health_movement">Здоровье и передвижение</option>
+                    <option value="special">Только особые</option>
+                    <option value="random" selected>Случайно (все)</option>
+                </select>
+            </div>
+            <div class="setting">
+                <label for="enemy-limit">Лимит врагов на карте</label>
+                <select id="enemy-limit" class="setting-select">
+                    <option value="50" selected>50</option>
+                    <option value="150">150</option>
+                    <option value="300">300</option>
+                    <option value="500">500</option>
+                </select>
+            </div>
+        </div>
+        <button id="back-from-settings-btn" class="menu-btn back-btn">Назад</button>
+    </div>
+
+    <div id="game-screen" class="screen">
+        <canvas id="gameCanvas"></canvas>
+        <div id="controls-overlay" class="hidden">
+            <div class="controls-left-top">
+                <p>Управление движением</p>
+                <p class="keys">W, A, S, D</p>
+            </div>
+            <div class="controls-left-bottom">
+                <p>Управление обзором и стрельбой</p>
+                <p class="keys">Мышь</p>
+            </div>
+            <div class="controls-right-top">
+                <p>Взаимодействие</p>
+                <p class="keys">Пробел</p>
+            </div>
+            <div class="controls-right-bottom">
+                <p>Открыть инвентарь</p>
+                <p class="keys">I</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/items.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/camera.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/map.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/player.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/projectile.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/game.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/menu.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/enemy.js') }}"></script>
+</body>
+</html>
