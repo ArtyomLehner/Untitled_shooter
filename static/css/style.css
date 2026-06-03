@@ -1,0 +1,218 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #1a1a1a;
+    color: #eee;
+}
+
+.screen {
+    display: none;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.screen.active {
+    display: flex;
+}
+
+.menu-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.menu-btn {
+    width: 220px;
+    padding: 15px 0;
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border: none;
+    border-radius: 40px;
+    background: linear-gradient(145deg, #2a7fff, #1a4fcc);
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3), inset 0 1px 2px rgba(255,255,255,0.4);
+    transition: transform 0.15s, box-shadow 0.15s;
+    text-transform: uppercase;
+}
+
+.menu-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4), inset 0 1px 2px rgba(255,255,255,0.5);
+}
+
+.menu-btn:active {
+    transform: translateY(2px);
+    box-shadow: 0 3px 8px rgba(0,0,0,0.3);
+}
+
+.back-btn {
+    background: linear-gradient(145deg, #555, #333);
+    margin-top: 40px;
+}
+
+#settings-screen {
+    background: #222;
+    color: #eee;
+}
+
+.settings-container {
+    background: rgba(255,255,255,0.05);
+    padding: 30px 40px;
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.5);
+    min-width: 380px;
+}
+
+.setting {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 18px 0;
+    font-size: 18px;
+}
+
+.setting label {
+    flex: 1;
+    text-align: left;
+    padding-right: 20px;
+    font-weight: 500;
+}
+
+.setting-select {
+    width: 160px;
+    padding: 8px 12px;
+    border-radius: 10px;
+    border: none;
+    background: #3a3a3a;
+    color: white;
+    font-size: 15px;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.3);
+    outline: none;
+}
+
+.setting-select:focus {
+    background: #4a4a4a;
+}
+
+.checkbox-container {
+    width: 48px;
+    height: 24px;
+    position: relative;
+}
+
+#day-night-toggle {
+    display: none;
+}
+
+.checkbox-custom {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #3a3a3a;
+    border-radius: 24px;
+    cursor: pointer;
+    transition: background 0.3s;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.4);
+}
+
+.checkbox-custom::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 20px;
+    height: 20px;
+    background: #ccc;
+    border-radius: 50%;
+    transition: transform 0.3s;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+}
+
+#day-night-toggle:checked + .checkbox-custom {
+    background: #2a7fff;
+}
+
+#day-night-toggle:checked + .checkbox-custom::after {
+    transform: translateX(24px);
+    background: #fff;
+}
+
+#game-screen {
+    background: #000;
+}
+
+#gameCanvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+#controls-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 24px;
+    z-index: 10;
+    pointer-events: none;
+    transition: opacity 1s;
+}
+
+#controls-overlay.hidden {
+    display: none;
+}
+
+.controls-left-top {
+    position: absolute;
+    left: 20%;
+    top: 35%;
+    text-align: left;
+}
+
+.controls-left-bottom {
+    position: absolute;
+    left: 20%;
+    bottom: 35%;
+    text-align: left;
+}
+
+.controls-right-top {
+    position: absolute;
+    right: 20%;
+    top: 35%;
+    text-align: right;
+}
+
+.controls-right-bottom {
+    position: absolute;
+    right: 20%;
+    bottom: 35%;
+    text-align: right;
+}
+
+.keys {
+    font-weight: bold;
+    font-size: 28px;
+    margin-top: 10px;
+}
